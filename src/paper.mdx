@@ -1,36 +1,25 @@
 ---
-title: Academic Project Page Template
+title: "RODEO: RObotic DEcentralized Organization"
 authors:
-  - name: Roman Hauksson
-    url: https://roman.technology
-    institution: University of Texas at Dallas
-    notes: ["*", †]
-  - name: Author Two
-    institution: Institution Two
-    notes: ["*", †]
-  - name: Author Three
-    institution: Institution Three
-    notes: ["*"]
-  - name: Author Four
-    institution: Institution Four
-conference: Conference Name
-notes:
-  - symbol: "*"
-    text: author note one
-  - symbol: †
-    text: author note two
+  - name: Milan Groshev
+    url: https://milangroshev-io.vercel.app/
+    institution: CyPhy Life, IE University, Spain
+  - name: Eduardo Castelló Ferrer
+    url: https://eduardo.castello.phd/
+    institution: CyPhy Life, IE University, Spain
+conference: IEEE International Conference on Robotics and Automation (ICRA) 2026
 links:
   - name: Paper
-    url: https://github.com/RomanHauksson/academic-project-astro-template
+    url: public/paper.pdf
     icon: ri:file-pdf-2-line
   - name: Code
-    url: https://github.com/RomanHauksson/academic-project-astro-template
+    url: https://github.com/IERoboticsAILab/RODEO
     icon: ri:github-line
   - name: arXiv
-    url: https://github.com/RomanHauksson/academic-project-astro-template
+    url: https://arxiv.org/abs/2603.06058
     icon: academicons:arxiv
-  - name: Slides
-    url: https://github.com/RomanHauksson/academic-project-astro-template
+  - name: Video
+    url: https://www.youtube.com/watch?v=L5voOWKFLzk
     icon: ri:slideshow-2-line
 
 # The color theme of the page. Defaults to "device" (the preference set in the user's brower or operating system). Setting this to "light" or "dark" will override the user's preference. This is useful if your figures only look good in one theme.
@@ -40,28 +29,20 @@ theme: device
 favicon: favicon.svg
 
 # These keys are optional. If a link to your project page is in a Google search result, text message, or social media post, it will often appear as a "link preview card" based on its title, description, favicon, and thumbnail. After you publish your page, you can double check that these previews look right using [this tool](https://linkpreview.xyz/)
-description: Simple project page template for your research paper, built with Astro and Tailwind
+description: RODEO is a blockchain-based framework enabling service robots to operate autonomously within decentralized organizations, with verifiable task execution, token-based compensation, and immutable audit trails.
 thumbnail: screenshot-light.png
 ---
 
 import Video from "./components/Video.astro";
 import HighlightedSection from "./components/HighlightedSection.astro";
-import SmallCaps from "./components/SmallCaps.astro";
 import Figure from "./components/Figure.astro";
 import Picture from "./components/Picture.astro";
-import ModelViewer from "./components/ModelViewer.astro"
-import TwoColumns from "./components/TwoColumns.astro";
 import YouTubeVideo from "./components/YouTubeVideo.astro";
-import Carousel from "./components/Carousel.astro";
-import CarouselSlide from "./components/CarouselSlide.astro";
 import Wide from "./components/Wide.astro";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/starwind/tabs";
-import { Comparison } from "./components/Comparison.tsx";
+import { Icon } from "astro-icon/components";
 
-import outside from "./assets/outside.mp4";
-import dogsDiffc from "./assets/dogs-diffc.png"
-import dogsTrue from "./assets/dogs-true.png"
-import dogsMsillm from "@/assets/dogs-msillm.jpg"
+import outside from "./assets/Teaser_V2_ICRA.mp4";
+import rodeo from "./assets/RODEO_video.mp4";
 
 <Video src={outside} />
 
@@ -69,140 +50,238 @@ import dogsMsillm from "@/assets/dogs-msillm.jpg"
 
 ## Abstract
 
-This is a template you can use to create a professional project page for your research paper. [See the code for the template and instructions on how to use it yourself on GitHub](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold**, _italics_, and ~strikethrough~, as well as custom components like <SmallCaps>small caps.</SmallCaps>
+Robots are improving their autonomy with minimal human supervision. However, auditable actions, transparent decision processes, and new human-robot interaction models are still missing requirements to achieve extended robot autonomy. To tackle these challenges, we propose RODEO (RObotic DEcentralized Organization), a blockchain-based framework that integrates trust and accountability mechanisms for robots. This paper formalizes Decentralized Autonomous Organizations (DAOs) for service robots. First, it provides a ROS–ETH bridge between the DAO and the robots. Second, it offers templates that enable organizations (e.g., companies, universities) to integrate service robots into their operations. Third, it provides proof-verification mechanisms that allow robot actions to be auditable. In our experimental setup, a mobile robot was deployed as a trash collector in a lab scenario. The robot collects trash and uses a smart bin to sort and dispose of it correctly. Then, the robot submits a proof of the successful operation and is compensated in DAO tokens. Finally, the robot re-invests the acquired funds to purchase battery charging services. Data collected in a three day experiment show that the robot doubled its income and reinvested funds to extend its operating time. The proof-validation times of approximately one minute ensured verifiable task execution, while the accumulated robot income successfully funded up to 88 hours of future autonomous operation. The results of this research give insights about how robots and organizations can coordinate tasks and payments with auditable execution proofs and on-chain settlement.
 
 </HighlightedSection>
 
-## Visuals
+## Why this matters
 
-### Picture
+Current service robots face three challenges that limit their integration into organizations:
 
-Use the `Picture` component to display images. If you have a figure in PDF format, you can pass in its path as the `src` prop and it will be converted into a web-friendly image automatically.
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-8">
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+    <div class="flex items-center gap-3 mb-3">
+      <Icon name="ri:links-line" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Coordination</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">Organizations deploy robots from different vendors, each specialized in specific tasks like cleaning, delivery, or security. These deployments rely on proprietary management systems that, forcing organizations to manage heterogeneus robotic systems.</p>
+  </div>
+  
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+    <div class="flex items-center gap-3 mb-3">
+      <Icon name="ri:megaphone-line" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Expression</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">Robots cannot independently advertise what services they can perform or prove that a task was successfully completed. This inability to express capabilities and verify actions creates operational bottlenecks and prevents flexible task allocation across mixed robot fleets.</p>
+  </div>
+  
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700">
+    <div class="flex items-center gap-3 mb-3">
+      <Icon name="ri:shield-check-line" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Trust</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">When a robot fails or causes damage, operational logs are typically stored on proprietary servers or the robot's local disk—records that can be altered or deleted. This makes establishing trust and liability challenging, as the operational source of truth remains obscure and mutable.</p>
+  </div>
+</div>
 
-<Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
+RODEO addresses these challenges by providing a blockchain-based coordination layer where robots can register services, accept task assignments, submit verifiable execution proofs, and receive token-based compensation - all recorded on an immutable, decentralized ledger that ensures accountability and enables autonomous economic participation.
 
-### Wide visual
-
-I constrained the maximum width of the text column to make sure it's readable even when the screen is wide. But images and other visuals should "break out" and take up more horizontal space: for this, try wrapping them in the `Wide` component.
-
-<Wide>
-  <Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-</Wide>
-
-### Figure with caption
-
-Wrap a visual in a `Figure` component to add a caption.
+## RODEO overview
 
 <Figure>
-  <Picture slot="figure" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  <Fragment slot="caption">A photo of two dogs running side-by-side in shallow water, lossily compressed using the [DiffC algorithm](https://jeremyiv.github.io/diffc-project-page/).</Fragment>
+  <Picture slot="figure" src="../assets/system-desing-final.pdf" alt="RODEO system architecture showing interaction between humans, robots, organizations, blockchain network, and verification oracle" />
+  <Fragment slot="caption">Illustration of the interaction between humans, robots, and organizations using blockchain-based smart contracts and proof-verification mechanisms. The framework consists of three main components: the DAO bridge, blockchain network, and verification oracle.</Fragment>
 </Figure>
 
-### Comparison slider
+RODEO is organized into three primary architectural building blocks that work together to enable autonomous, accountable robot operations within decentralized organizations:
 
-Use the `Comparison` component to compare two visuals with an interactive slider.
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-8">
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 text-center">
+    <div class="flex flex-col items-center mb-3">
+      <Icon name="ri:exchange-line" class="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">DAO bridge</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">The DAO bridge serves as the interface layer between all participants in the blockchain network. It provides organizations, humans, and robots with a common programmable API to publish tasks and services, receive assignments, manage rewards, and observe state updates.</p>
+  </div>
+  
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 text-center">
+    <div class="flex flex-col items-center mb-3">
+      <Icon name="ri:links-fill" class="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Blockchain network</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">The blockchain network addresses the critical issues of trust and liability. It functions as a transparent, tamper-proof ledger that records participant interactions, task completion proofs, and robot data in a way that cannot be altered. Smart contracts define organizational rules.</p>
+  </div>
+  
+  <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 text-center">
+    <div class="flex flex-col items-center mb-3">
+      <Icon name="ri:check-double-line" class="w-8 h-8 text-blue-600 dark:text-blue-400 mb-2" />
+      <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Verification oracle</h3>
+    </div>
+    <p class="text-base text-zinc-700 dark:text-zinc-300">The verification oracle provides an auditable source of truth by ensuring reward settlement is based on verified physical performance. It validates that task execution proofs are legitimate and unmanipulated and performs emulation-based verification.</p>
+  </div>
+</div>
 
-<Comparison client:idle >
-  <Picture slot="itemOne" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  <Picture slot="itemTwo" src={dogsTrue} alt="True photo of two dogs running side-by-side in shallow water" />
-</Comparison>
+## Use Case: Cleaning and charging in a university lab
 
-### Tab panels
+<Video src={rodeo} />
 
-Tab panels are a great way to display a labeled collection of related visuals without taking up too much space.
+To evaluate RODEO, we designed a cleaning task scenario in a university lab. The main participants were an organization (managing tasks and services) and a mobile robot with a manipulator. Two services were established: waste disposal (provided by the robot) and battery charging (provided by the organization). In this scenario, when trash is found in the lab (normally left by the students), the organization creates a waste disposal task, and the system assigns it to an available robot.
 
-<Tabs defaultValue="true">
-  <TabsList>
-    <TabsTrigger value="true">Ground truth</TabsTrigger>
-    <TabsTrigger value="diffc">DiffC (Flux-dev)</TabsTrigger>
-    <TabsTrigger value="msillm">MS-ILLM</TabsTrigger>
-  </TabsList>
-  <TabsContent value="true">
-    <Picture
-      src={dogsTrue}
-      alt="True photo of two dogs running side-by-side in shallow water"
-    />
-  </TabsContent>
-  <TabsContent value="diffc">
-    <Picture
-      src={dogsDiffc}
-      alt="Photo of two running dogs, lossily compressed using the DiffC algorithm"
-    />
-  </TabsContent>
-  <TabsContent value="msillm">
-    <Picture
-      src={dogsMsillm}
-      alt="Photo of two running dogs, lossily compressed using MS-ILLM"
-    />
-  </TabsContent>
-</Tabs>
+### The waste disposal workflow
 
-### Carousel
+<div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 not-prose my-8">
+  <ol class="space-y-4">
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">1</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Organization creates task</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">When trash is found in the lab, the organization creates a waste disposal task using a web interface. The system assigns it to an available robot.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">2</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Robot picks trash</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">The robot navigates to the tagged waste item, uses its manipulator to grasp the object, then drives to the iTrash smart bin.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">3</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Disposes correctly</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">The robot presents the grasped item to the iTrash camera, queries the classification service, and receives a completion flag after dropping the item in the correct bin.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">4</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Submits proof</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">After task completion, the robot uploads a rosbag file containing its base trajectory, manipulator poses, gripper release confirmation, and the iTrash success message as verifiable proof.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">5</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Oracle validates</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">The verification oracle downloads the rosbag, replays it in Gazebo at 3× speed, and verifies execution checkpoints: pick-and-place stops, manipulator poses, gripper release, and iTrash message.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">6</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Robot receives 100 IEC</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">Upon successful validation, the smart contract releases the escrowed 100 IEC tokens to the robot's wallet, compensating it for the completed service.</p>
+      </div>
+    </li>
+  </ol>
+</div>
 
-A carousel is another useful pattern for a collection of visuals that don't necessarily have meaningful labels.
+### The charging workflow: Reinvesting earnings
 
-<Carousel>
-  <CarouselSlide>
-    <Picture src={dogsTrue} alt="True photo of two dogs running side-by-side in shallow water" />
-  </CarouselSlide>
-  <CarouselSlide>
-    <Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  </CarouselSlide>
-  <CarouselSlide>
-    <Picture
-      src={dogsMsillm}
-      alt="Photo of two running dogs, lossily compressed using MS-ILLM"
-    />
-  </CarouselSlide>
-</Carousel>
+<div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-lg border border-zinc-200 dark:border-zinc-700 not-prose my-8">
+  <ol class="space-y-4">
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">1</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Battery low, robot creates charging task</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">When the robot's battery reaches 50%, it autonomously creates a charging task and navigates to the charging area.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">2</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Charging costs 200 IEC</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">The robot completes a battery charging session at a fixed electricity tariff of 200 IEC paid to the organization.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">3</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Organization submits charging proof</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">After the charging session completes, the organization submits energy consumption logs as proof of service delivery.</p>
+      </div>
+    </li>
+    
+    <li class="flex gap-4">
+      <span class="flex-shrink-0 w-8 h-8 bg-blue-600 dark:bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">4</span>
+      <div>
+        <h4 class="text-lg font-semibold text-zinc-900 dark:text-zinc-50 mb-1">Robot reinvests earned funds to extend autonomy</h4>
+        <p class="text-base text-zinc-700 dark:text-zinc-300">The oracle validates the charging proof, the smart contract deducts 200 IEC from the robot's wallet, and the robot is ready to continue autonomous operation—effectively reinvesting its task earnings to extend its operational lifetime.</p>
+      </div>
+    </li>
+  </ol>
+</div>
 
-## Two columns
+## Real-world experiments
 
-Use the two columns component to display two columns of content. In this example, the first column contains a YouTube video embed and the second column contains an interactive 3D model viewer. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
+<Figure>
+  <Picture slot="figure" src="../assets/experimental-scenario-new.pdf" alt="Experimental scenario showing physical space with robot operations and cyber space with smart contract deployment" />
+  <Fragment slot="caption"> Experimental setup of the cleaning task scenario. The left section shows the physical space where a Husarion Panther mobile robot with a Trossen ViperX 300S manipulator performs waste collection (steps 1–5) and battery charging (steps 6–7). The right section represents cyber space, showing smart contract deployment on Sepolia testnet and the local verification oracle.</Fragment>
+</Figure>
 
-<TwoColumns>
-  <YouTubeVideo slot="left" videoId="wjZofJX0v4M" />
-  <ModelViewer slot="right" src="/BoxVertexColors.glb" alt="A cube colored with a rainbow gradient" />
-</TwoColumns>
+We ran our cleaning task scenario for three consecutive days in the AI & Robotics lab at IE University. During the experimental campaign we completed a total of 59 tasks where 8 were battery charging tasks created by the robot and 51 were waste disposal tasks created by the organization.
 
-## $\LaTeX$
+The prototype of RODEO was deployed on the Ethereum Sepolia Testnet. We deployed an ERC20 compatible token named IEC that was used for rewards in our experimentation. We deployed the following smart contracts: [Organization.sol](https://sepolia.etherscan.io/address/0xF204681dc989386646b542649E6b1B12De468e2F), [TaskManager.sol](https://sepolia.etherscan.io/address/0x6F0B8122bCfaA2CB8E838458662cDdec74673399), [ServiceManager.sol](https://sepolia.etherscan.io/address/0x7fa7c9651A7da4d342394026796f35Df4E10bF5F), and [IECoin.sol](https://sepolia.etherscan.io/address/0x5D64497a14a5FD35A96F4B8c5AA6603DB56E913C).
 
-You can also add $\LaTeX$ formulas, rendered during the build process using [$\KaTeX$](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: $a^2 + b^2 = c^2$. Or, you can write them as a block:
+## Results
 
-$$
-\int_a^b f(x) dx
-$$
 
-## Citation
+### Task completion and proof validation times
 
-If you copy your bibliography into `./bibliography.bib`, you can cite papers using their BibTeX keys, and they'll be automatically formatted and included in the bibliography section at the end. For example: [@vaswani2017attention]. Note that these citations are distinct from footnotes[^mynote], which show up in a separate section if you use them.
+<Figure>
+  <div slot="figure" class="max-w-2xl mx-auto">
+    <Picture src="../assets/res1-tkiz.pdf" alt="Bar chart showing task completion times and proof validation times for cleaning and charging tasks" />
+  </div>
+  <Fragment slot="caption">Completion times (in minutes) for task and proof creation. Bar plots show the median completion times for cleaning (blue) and charging (green) tasks. Light colors show the median time of proof creation after the corresponding task was completed.</Fragment>
+</Figure>
 
-[^mynote]: On the web, they should really be called "endnotes", since each page constitutes a full document.
+**Cleaning tasks completed in about 4.1 minutes total, with oracle validation around 1.1 minutes.** Across the three evaluation days, cleaning task execution time was 3.2 minutes (range: 2.4–3.7 minutes), covering navigation to trash, grasping the item, depositing it in the bin, and uploading the proof. Oracle decision time was 1.1 minutes (range: 0.9–1.2 minutes), reflecting rosbag replay at 3× speed while verifying execution checkpoints. Total cleaning task completion time (execution + validation) averaged 4.1 minutes (range: 3.6–4.8 minutes).
 
-## Table
+**Charging took much longer, but proof verification stayed under about a minute.** As expected, battery charging dominated overall runtime with a median of 65.5 minutes (range: 53.6–73.0 minutes across the three days). The robot took 65.5 minutes to fully charge the battery. However, the corresponding oracle verification time remained fast at 0.8, 1.0, and 0.3 minutes, yielding a median charging-task completion time of 65.8 minutes. The brief verification time demonstrates that proof validation scales independently of physical task duration.
 
-Add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
+### Robot wallet balance evolution
 
-| Model | Accuracy | F1 score | Training time (hours) |
-| :--- | :---: | :---: | :---: |
-| BERT-base | 0.89 | 0.87 | 4.5 |
-| RoBERTa-large | 0.92 | 0.91 | 7.2 |
-| DistilBERT | 0.86 | 0.84 | 2.1 |
-| XLNet | 0.90 | 0.89 | 6.8 |
+<Figure>
+  <div slot="figure" class="max-w-2xl mx-auto">
+    <Picture src="../assets/robo-wallet-tkiz.pdf" alt="Line chart showing robot wallet balance evolution over three days with income from cleaning tasks and expenses for charging" />
+  </div>
+  <Fragment slot="caption">Balance of the robot's wallet (in IEC) from September 10th–12th, 2025. Green diamonds represent payments from the organization to the robot for successful cleaning task execution. Red diamonds represent electricity purchases for battery charging. The yellow line shows wallet balance evolution, demonstrating positive economic growth from 2000 IEC to 4100 IEC over three days.</Fragment>
+</Figure>
+
+**Over three days, the robot's balance increased from 2000 to 4100 IEC.** The organization seeded the robot wallet with 2000 IEC at the start. Through autonomous task execution in the lab, the balance increased to 4100 IEC—meaning the robot could return the initial stake and still retain an additional 2100 IEC to sustain further operation. Drops in the yellow line mark charging events (red diamonds), while flat segments indicate inactivity during nighttime hours when the lab was unoccupied. The steady upward trend demonstrates that task earnings exceeded operational costs, validating the economic sustainability of the robot-driven DAO model.
+
+### Extended autonomy through reinvestment
+
+<Figure>
+  <div slot="figure" class="max-w-2xl mx-auto">
+    <Picture src="../assets/res3-tkiz.pdf" alt="Bar chart showing daily extended operating hours funded by the robot's task earnings" />
+  </div>
+  <Fragment slot="caption">**Daily extended operating hours funded by the robot's task earnings.** Each bar represents the autonomy gained from that specific end-of-day balance, summing to a total of 11 charges (88 hours) over the three-day period. A single charge enables 8 hours of extended operation.</Fragment>
+</Figure>
+
+**Task earnings could fund 11 more charges, equal to 88 hours of operation.** Daily task earnings, when reinvested as battery charges, enable extended autonomous operation. On day one, the robot completed 5 tasks (+500 IEC) and charged once (−200 IEC), resulting in a 300 IEC balance—enough to fund 1 additional charge and 8 hours of operation. Funded hours increased to 24 hours on day two and 56 hours on day three, corresponding to 3 and 7 charging cycles respectively. Across the three days, accumulated earnings could sustain the robot for 88 hours of future operation (11 total charges), demonstrating that task-based income successfully covers operational costs and enables continued autonomy without external funding.
+
+## Future work
+
+There are several interesting extensions that could enhance RODEO's real-world viability. First, expanding the experimental setup to include multiple robots and human participants would allow us to test whether token-based incentives measurably improve human-robot collaboration. For example, robots could post their own maintenance tasks (e.g., "clean my wheels" or "upgrade my hardware"), incentivizing humans to handle them carefully since their continued operation sustains future revenue. Additionally, large-scale simulations using Gazebo and PyRoboSim could help model the organization's evolution under diverse conditions—varying robot populations, task availability, and pricing mechanisms—to identify economic policies that maintain sustainability as complexity grows.
+
+From a technical perspective, scaling to multi-robot organizations will require addressing blockchain scalability challenges. As the number of robots and tasks increases, fluctuating gas fees and block confirmation delays could affect real-time responsiveness. Future work should explore Layer-2 scaling solutions or sidechain integrations to reduce costs and latency while preserving auditability. Finally, our current rosbag-based proof mechanism remains vulnerable to spoofed messages or replayed telemetry. Implementing hardware-backed signing or tamper-evident "sealed rosbags" would strengthen proof trustworthiness, ensuring that execution data submitted to the DAO has not been modified before validation.
 
 ## BibTeX citation
 
-Displaying the BibTeX entry for your paper in a code block makes it easy to copy and paste.
-
 ```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
+@inproceedings{groshev2026rodeo,
+  title={RODEO: RObotic DEcentralized Organization},
+  author={Groshev, Milan and Castell{\'o} Ferrer, Eduardo},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026},
+  organization={IEEE}
 }
 ```
-
-## Bibliography
-
-[^ref]
