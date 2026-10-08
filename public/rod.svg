@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">ROD</title>
+
+  <!--
+    Custom rounded letterforms inspired by the supplied CPL mark.
+    The artwork uses no font files, so it renders consistently everywhere.
+  -->
+  <g
+    fill="none"
+    stroke="#000"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <!-- R -->
+    <path d="M9 100V28H25.5C36.5 28 42.5 35 42.5 46.5S36.5 65 25.5 65H9"/>
+    <path d="M26 65L43 100"/>
+
+    <!-- O -->
+    <ellipse cx="66" cy="64" rx="16.5" ry="36"/>
+
+    <!-- D -->
+    <path d="M94 100V28H103.5C116 28 122 40 122 64S116 100 103.5 100H94"/>
+  </g>
+
+  <style>
+    @media (prefers-color-scheme: dark) {
+      g { stroke: #fff; }
+    }
+  </style>
+</svg>
